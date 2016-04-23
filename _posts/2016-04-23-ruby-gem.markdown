@@ -1,0 +1,62 @@
+---
+layout: post
+title: "创建自己的GEM包"
+date: 2016-04-23 12:58:00 +0800
+categories: jekyll update
+---
+
+####1、自动产生gem包目录
+以 Bundler 內建的指令 `bundle gem GEM_NAME`
+
+```shell
+workspace $ bundle gem wechat
+Creating gem 'wechat'...
+Code of conduct enabled in config
+create  wechat/Gemfile
+create  wechat/.gitignore
+create  wechat/lib/wechat.rb
+create  wechat/lib/wechat/version.rb
+create  wechat/wechat.gemspec
+create  wechat/Rakefile
+create  wechat/README.md
+create  wechat/bin/console
+create  wechat/bin/setup
+create  wechat/CODE_OF_CONDUCT.md
+create  wechat/.travis.yml
+Initializing git repo in /Users/Nick/Documents/workspace/wechat
+```
+
+```ruby
+Gemfile  # 本项目依赖的gem列表
+Rakefile # 发布和打包的rake tasks
+wechat.gemspec # gem的描述文件
+lib/  # lib目录下存放项目代码
+```
+
+###2、打包gem包
+
+```shell
+wechat [master] $ gem build wechat.gemspec
+```
+存放编写的代码
+将自己的代码放到lib/目录下，比如browser.rb,database.rb等
+一般的做法是在lib目录下建立一个wechat.rb文件，这个文件中引入你的lib/文件夹下所有rb文件。wechat.rb文件的内容为：
+```ruby
+require File.dirname(__FILE__) +'/browser'
+require File.dirname(__FILE__) +'/database'
+```
+或者
+```ruby
+$:.unshift"#{File.dirname(__FILE__)}/"
+require ‘browser’
+require ‘database’
+```
+
+###3、上传gem包到rubygem.org
+到rubygem官方网站 http://rubygems.org， 注册用户。
+
+```shell
+wechat [master] $ gem push
+```
+
+输入邮箱和密码，上传gem包。
