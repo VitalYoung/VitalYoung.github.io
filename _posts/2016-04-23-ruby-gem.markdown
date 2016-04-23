@@ -5,7 +5,8 @@ date: 2016-04-23 12:58:00 +0800
 categories: jekyll update
 ---
 
-####1、自动产生gem包目录
+1、自动产生gem包目录
+========
 以 Bundler 內建的指令 `bundle gem GEM_NAME`
 
 ```shell
@@ -33,26 +34,33 @@ wechat.gemspec # gem的描述文件
 lib/  # lib目录下存放项目代码
 ```
 
-###2、打包gem包
+2、打包gem包
+========
 
 ```shell
 wechat [master] $ gem build wechat.gemspec
 ```
+
 存放编写的代码
+
 将自己的代码放到lib/目录下，比如browser.rb,database.rb等
 一般的做法是在lib目录下建立一个wechat.rb文件，这个文件中引入你的lib/文件夹下所有rb文件。wechat.rb文件的内容为：
+
 ```ruby
 require File.dirname(__FILE__) +'/browser'
 require File.dirname(__FILE__) +'/database'
 ```
+
 或者
+
 ```ruby
 $:.unshift"#{File.dirname(__FILE__)}/"
-require ‘browser’
-require ‘database’
+require 'browser'
+require 'database'
 ```
 
-###3、上传gem包到rubygem.org
+3、上传gem包到rubygem.org
+========
 到rubygem官方网站 http://rubygems.org， 注册用户。
 
 ```shell
