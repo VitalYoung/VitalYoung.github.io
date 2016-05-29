@@ -5,23 +5,38 @@ date:   2016-05-29 16:35:00 +0800
 categories: Maven javaWeb SpringMVC mybatis
 ---
 
-###springMVC+mybatis框架搭建, Tomcat7.0+JDK 1.7
+springMVC+mybatis框架搭建, Tomcat7.0+JDK 1.7
+======
 
->原文链接http://my.oschina.net/u/1011897/blog/199172
+>原文链接<a href="http://my.oschina.net/u/1011897/blog/199172">http://my.oschina.net/u/1011897/blog/199172</a>
 
-####1、工程目标结构
+1、工程目标结构
+-----
 
 使用Maven新建的工程的源代码目录有`src/main/java, src/main/resource, src/test/java`。
 
->在`src/main/java`文件夹中新建包`cn.springmvc.model(存放javabean)`,`cn.springmvc.dao（存放spring与mybatis连接接口）`,`cn.springmvc.service（service接口）`,`cn.springmvc.service.impl（service接口的实现）`, `cn.springmvc.controller（存放控制层controller）`;
->在`src/main/resource`文件夹下新建包`conf（存放配置文件）`,`mapper（mybatis的mapper文件）`。
->在`src/test/java`文件夹下新建包`cn.springmvc.test(存放测试文件)`。
+>在`src/main/java`文件夹中新建包
+>`cn.springmvc.model(存放javabean)`
+>`cn.springmvc.dao（存放spring与mybatis连接接口）`
+>`cn.springmvc.service（service接口）`
+>`cn.springmvc.service.impl（service接口的实现）`
+>`cn.springmvc.controller（存放控制层controller）`;
+>
+>在`src/main/resource`文件夹下新建包
+>`conf（存放配置文件）`
+>`mapper（mybatis的mapper文件）`。
+>
+>在`src/test/java`文件夹下新建包
+>`cn.springmvc.test(存放测试文件)`
+>
 >在`WEB-INF`文件夹下新建`jsp文件夹（存放jsp文件）`。
 
 
-####2、修改pom.xml文件引入依赖包
+2、修改pom.xml文件引入依赖包
+-----
 
->pom.xml(包依赖)
+`pom.xml(包依赖)`
+
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -174,9 +189,11 @@ categories: Maven javaWeb SpringMVC mybatis
 </project>
 ```
 
-####3、配置数据库连接属性
+3、配置数据库连接属性
+-----
 
->conf/ jdbc.properties（jdbc配置文件)
+`conf/ jdbc.properties（jdbc配置文件)`
+
 
 ```
 jdbc_driverClassName=com.mysql.jdbc.Driver
@@ -185,9 +202,11 @@ jdbc_username=db_username
 jdbc_password=db_password
 ```
 
-####4、配置spring配置文件
+4、配置spring配置文件
+-----
 
-> conf/spring.xml(spring配置文件的扫描)
+`conf/spring.xml(spring配置文件的扫描)`
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -209,9 +228,11 @@ jdbc_password=db_password
 </beans>
 ```
 
->conf/spring-mybatis.xml（spring与mybatis连接属性）
 
-```
+`conf/spring-mybatis.xml（spring与mybatis连接属性）`
+
+
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -298,9 +319,11 @@ jdbc_password=db_password
 </beans>
 ```
 
-####5、java代码编写（model，dao，service层代码）
+5、java代码编写（model，dao，service层代码）
+-----
 
->cn.springmvc.model/User.java(用户基本信息)
+`cn.springmvc.model/User.java(用户基本信息)`
+
 
 ```java
 package cn.springmvc.model;
@@ -336,7 +359,8 @@ public class User {
 ```
 
 
->cn.springmvc.dao/UserDAO.java(dao操作接口)
+`cn.springmvc.dao/UserDAO.java(dao操作接口)`
+
 
 ```java
 package cn.springmvc.dao;
@@ -355,7 +379,8 @@ public interface UserDAO {
 }
 ```
 
->cn.springmvc.service/UserService.java(service层接口)
+`cn.springmvc.service/UserService.java(service层接口)`
+
 
 ```java
 package cn.springmvc.service;
@@ -369,7 +394,9 @@ public interface UserService {
 }
 ```
 
->cn.springmvc.service.impl/UserServiceImpl.java(service层接口实现)
+
+`cn.springmvc.service.impl/UserServiceImpl.java(service层接口实现)`
+
 
 ```java
 package cn.springmvc.service.impl;
@@ -396,9 +423,10 @@ public class UserServiceImpl implements UserService{
 }
 ```
 
-####6、mybatis配置
+6、mybatis配置
+-----
 
->conf/mybatis-config.xml(mybatis配置的基本文件)
+`conf/mybatis-config.xml(mybatis配置的基本文件)`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -417,7 +445,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 </configuration>
 ```
 
->mapper/UserMapper.xml(mybatis的实现)
+`mapper/UserMapper.xml(mybatis的实现)`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -439,9 +467,11 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 </mapper>
 ```
 
-####7、 junit测试插入功能
+7、 junit测试插入功能
+-----
 
->cn.springmvc.test/UserTest.java(用户测试模块)
+`cn.springmvc.test/UserTest.java(用户测试模块)`
+
 
 ```java
 package cn.springmvc.test;
@@ -478,12 +508,13 @@ private UserService userService;
 }
 ```
 
-在eclipse环境下，右击项目 Run As -> Mave test 进行测试。 
+>在eclipse环境下，右击项目 Run As -> Mave test 进行测试。 
 
 
-####8、springMVC模块搭建 
+8、springMVC模块搭建 
+-----
 
->web.xml（web功能配置）
+`web.xml（web功能配置）`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -583,7 +614,8 @@ private UserService userService;
 ```
 
 
->conf/spring-mvc.xml(mvc配置文件)
+`conf/spring-mvc.xml(mvc配置文件)`
+
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -618,9 +650,11 @@ private UserService userService;
 </beans>
 ```
 
-####9、log4j日志记录搭建
+9、log4j日志记录搭建
+-----
 
->conf/log4j.properties(日志记录的配置文件)
+`conf/log4j.properties(日志记录的配置文件)`
+
 
 ```
 ### set log levels ###
@@ -651,9 +685,11 @@ log4j.appender.D.layout = org.apache.log4j.PatternLayout
 log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss} [ %t:%r ] - [ %p ] %m%n
 ```
 
-####10、测试运行
+10、测试运行
+-----
 
->WEB-INF/jsp/index.jsp(测试文件)
+`WEB-INF/jsp/index.jsp(测试文件)`
+
 
 ```xml
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -670,7 +706,7 @@ log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss} [ %t:%r ] -
 </html>
 ```
 
->cn.springmvc.controller/UserComtroller.java(controller层控制)
+`cn.springmvc.controller/UserComtroller.java(controller层控制)`
 
 ```java
 package cn.springmvc.controller;
@@ -690,8 +726,8 @@ public class UserController {
 }
 ```
 
-在eclipse环境下，右击项目Run As，选择Run on server，选择或者新建Tomcat7服务器进行测试。
-
-在浏览器中输入：http://localhost:8080/springmvc/index.do 进行测试。
+>在eclipse环境下，右击项目Run As，选择Run on server，选择或者新建Tomcat7服务器进行测试。
+>
+>在浏览器中输入：http://localhost:8080/springmvc/index.do 进行测试。
 
 
