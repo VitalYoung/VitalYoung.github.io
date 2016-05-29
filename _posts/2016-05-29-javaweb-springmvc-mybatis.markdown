@@ -6,34 +6,42 @@ categories: Maven javaWeb SpringMVC mybatis
 ---
 
 springMVC+mybatis框架搭建, Tomcat7.0+JDK 1.7
-======
+-----
 
 >原文链接<a href="http://my.oschina.net/u/1011897/blog/199172">http://my.oschina.net/u/1011897/blog/199172</a>
 
 1、工程目标结构
------
+=====
 
 使用Maven新建的工程的源代码目录有`src/main/java, src/main/resource, src/test/java`。
 
 >在`src/main/java`文件夹中新建包
+
 >`cn.springmvc.model(存放javabean)`
+
 >`cn.springmvc.dao（存放spring与mybatis连接接口）`
+
 >`cn.springmvc.service（service接口）`
+
 >`cn.springmvc.service.impl（service接口的实现）`
+
 >`cn.springmvc.controller（存放控制层controller）`;
 >
 >在`src/main/resource`文件夹下新建包
+
 >`conf（存放配置文件）`
+
 >`mapper（mybatis的mapper文件）`。
 >
 >在`src/test/java`文件夹下新建包
+
 >`cn.springmvc.test(存放测试文件)`
 >
 >在`WEB-INF`文件夹下新建`jsp文件夹（存放jsp文件）`。
 
 
 2、修改pom.xml文件引入依赖包
------
+=====
 
 `pom.xml(包依赖)`
 
@@ -190,9 +198,9 @@ springMVC+mybatis框架搭建, Tomcat7.0+JDK 1.7
 ```
 
 3、配置数据库连接属性
------
+=====
 
-`conf/ jdbc.properties（jdbc配置文件)`
+`conf/jdbc.properties（jdbc配置文件)`
 
 
 ```
@@ -203,7 +211,7 @@ jdbc_password=db_password
 ```
 
 4、配置spring配置文件
------
+=====
 
 `conf/spring.xml(spring配置文件的扫描)`
 
@@ -320,7 +328,7 @@ jdbc_password=db_password
 ```
 
 5、java代码编写（model，dao，service层代码）
------
+=====
 
 `cn.springmvc.model/User.java(用户基本信息)`
 
@@ -424,7 +432,7 @@ public class UserServiceImpl implements UserService{
 ```
 
 6、mybatis配置
------
+=====
 
 `conf/mybatis-config.xml(mybatis配置的基本文件)`
 
@@ -468,7 +476,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 ```
 
 7、 junit测试插入功能
------
+=====
 
 `cn.springmvc.test/UserTest.java(用户测试模块)`
 
@@ -512,7 +520,7 @@ private UserService userService;
 
 
 8、springMVC模块搭建 
------
+=====
 
 `web.xml（web功能配置）`
 
@@ -651,7 +659,7 @@ private UserService userService;
 ```
 
 9、log4j日志记录搭建
------
+=====
 
 `conf/log4j.properties(日志记录的配置文件)`
 
@@ -686,7 +694,7 @@ log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss} [ %t:%r ] -
 ```
 
 10、测试运行
------
+=====
 
 `WEB-INF/jsp/index.jsp(测试文件)`
 
