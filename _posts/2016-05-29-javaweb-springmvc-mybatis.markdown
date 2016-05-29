@@ -14,31 +14,31 @@ springMVC+mybatis框架搭建, Tomcat7.0+JDK 1.7
 =====
 
 使用Maven新建的工程的源代码目录有`src/main/java, src/main/resource, src/test/java`。
-
+>
 >在`src/main/java`文件夹中新建包
-
+>
 >`cn.springmvc.model(存放javabean)`
-
+>
 >`cn.springmvc.dao（存放spring与mybatis连接接口）`
-
+>
 >`cn.springmvc.service（service接口）`
-
+>
 >`cn.springmvc.service.impl（service接口的实现）`
-
+>
 >`cn.springmvc.controller（存放控制层controller）`;
 >
 >在`src/main/resource`文件夹下新建包
-
+>
 >`conf（存放配置文件）`
-
+>
 >`mapper（mybatis的mapper文件）`。
 >
 >在`src/test/java`文件夹下新建包
-
+>
 >`cn.springmvc.test(存放测试文件)`
 >
 >在`WEB-INF`文件夹下新建`jsp文件夹（存放jsp文件）`。
-
+>
 
 2、修改pom.xml文件引入依赖包
 =====
