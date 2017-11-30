@@ -1,0 +1,9 @@
+---
+layout: post
+title: "git使用中的一些方法"
+date: 2017-11-28 13:58:00 +0800
+categories: git
+---
+
+![git使用](https://ws3.sinaimg.cn/large/006tNc79ly1fm02h9d7dzj30qe11bk5b.jpg)
+
