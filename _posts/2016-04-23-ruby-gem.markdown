@@ -2,7 +2,7 @@
 layout: post
 title: "创建自己的GEM包"
 date: 2016-04-23 12:58:00 +0800
-categories: jekyll update
+categories: ruby gem
 ---
 
 1、自动产生gem包目录
