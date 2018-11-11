@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "supervisor+logrotate 守护进程和管理日志"
-date: 2017-11-11 12:35:00 +0800
+date: 2018-11-11 12:35:00 +0800
 categories: supervisor logrotate centos7
 ---
 
